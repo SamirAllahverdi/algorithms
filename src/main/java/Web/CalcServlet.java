@@ -31,14 +31,16 @@ public class CalcServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        String op = req.getParameter("op");
-        if(op.equals("add")){
-            resp.sendRedirect("http://www.google.com");
-        }
-        String x = req.getParameter("x");
-        String y = req.getParameter("y");
-        try (PrintWriter writer = resp.getWriter()) {
-            writer.write(calc.doOperation(x,y,op));
+//        String op = req.getParameter("op");
+//
+//        String x = req.getParameter("x");
+//        String y = req.getParameter("y");
+//        try (PrintWriter writer = resp.getWriter()) {
+//            writer.write(calc.doOperation(x,y,op));
+//        }
+
+        try (OutputStream os = resp.getOutputStream()) {
+            Files.copy(Paths.get("content/images/qeni.jpg"),os);
         }
     }
 }

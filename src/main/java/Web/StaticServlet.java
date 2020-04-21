@@ -11,13 +11,18 @@ import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
 public class StaticServlet extends HttpServlet {
+    private final String subPath;
 
+    public StaticServlet(String subPath) {
+        this.subPath = subPath;
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String imageName = req.getPathInfo();
-        String imageLocation = "content/images";
-        Path path = Paths.get(imageLocation, imageName);
+        String imageLocation = "content";
+        Path path = Paths.get(imageLocation,subPath, imageName);
+        System.out.printf("PathInfo: %s ",imageName);
         try (OutputStream os = resp.getOutputStream()) {
             Files.copy(path, os);
         }
