@@ -11,8 +11,8 @@ public class Servlet {
         Calculator calculator = new Calculator();
 
         servletContextHandler.addServlet(new ServletHolder(new CalcServlet(calculator)), "/calc/*");
-        servletContextHandler.addServlet(new ServletHolder(new StaticServlet()), "/static/*");
-        servletContextHandler.addServlet(new ServletHolder(new TestAddServlet()), "/add");
+        servletContextHandler.addServlet(new ServletHolder(new StaticServlet()), "/images/*");
+//        servletContextHandler.addServlet(new ServletHolder(new TestAddServlet()), "/add");
         server.setHandler(servletContextHandler);
         server.start();
         server.join();

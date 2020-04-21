@@ -16,7 +16,7 @@ public class StaticServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String imageName = req.getPathInfo();
-        String imageLocation = "content/images/";
+        String imageLocation = "content/images";
         Path path = Paths.get(imageLocation, imageName);
         try (OutputStream os = resp.getOutputStream()) {
             Files.copy(path, os);
