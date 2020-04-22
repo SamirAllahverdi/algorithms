@@ -18,26 +18,13 @@ public class CalcServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String content = new BufferedReader(new FileReader(new File("content/cupbaCupba.html"))).
-//                lines().collect(Collectors.joining("\n"));
-//
-//        try (PrintWriter writer = resp.getWriter()) {
-//            writer.write(content);
-//        }
+
         try (OutputStream os = resp.getOutputStream()) {
             Files.copy(Paths.get("content/cupbaCupba.html"), os);
         }
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
-//        String op = req.getParameter("op");
-//
-//        String x = req.getParameter("x");
-//        String y = req.getParameter("y");
-//        try (PrintWriter writer = resp.getWriter()) {
-//            writer.write(calc.doOperation(x,y,op));
-//        }
 
         try (OutputStream os = resp.getOutputStream()) {
             Files.copy(Paths.get("content/images/qeni.jpg"),os);

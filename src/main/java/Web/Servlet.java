@@ -9,13 +9,13 @@ public class Servlet {
         Server server = new Server(8081);
         ServletContextHandler servletContextHandler = new ServletContextHandler();
         Calculator calculator = new Calculator();
-
         servletContextHandler.addServlet(new ServletHolder(new CalcServlet(calculator)), "/calc/*");
         servletContextHandler.addServlet(new ServletHolder(new StaticServlet("images")), "/img/*");
         servletContextHandler.addServlet(new ServletHolder(new StaticServlet("js")), "/javascript/*");
         servletContextHandler.addServlet(new ServletHolder(new StaticServlet("css")), "/css/*");
 
-//        servletContextHandler.addServlet(new ServletHolder(new TestAddServlet()), "/add");
+
+        servletContextHandler.addServlet(new ServletHolder(new TestAddServlet()), "/add");
         server.setHandler(servletContextHandler);
         server.start();
         server.join();

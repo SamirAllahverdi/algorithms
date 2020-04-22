@@ -19,11 +19,11 @@ public class Trace3 {
 
     private static String MySoluthion(int R, int C, int[][] a) {
         return IntStream.range(0, R * C).map(x -> {
-            int column = x / R;
-            int shift = x - column * R;
-            int row = column % 2 == 0 ? shift : R - shift-1;
-            int column_reverse = C - 1 - column;
-            return a[row][column_reverse];
+            int row = x / C;
+            int shift = x - row * C;
+            int column = row % 2 == 0 ? shift : C - shift - 1;
+            int row_reverse = R - row - 1;
+            return a[row_reverse][column];
         }).mapToObj(String::valueOf).collect(Collectors.joining(" "));
     }
 }
