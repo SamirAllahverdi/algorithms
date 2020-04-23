@@ -5,6 +5,7 @@ import Practice.Main;
 import javax.swing.plaf.IconUIResource;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.io.*;
+import java.security.KeyStore;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -15,19 +16,29 @@ public class Practise {
 
 
     public static void main(String[] args) {
-        System.out.println("Result with Java 7: " + birthday(new ArrayList<>(Arrays.asList(4)), 4, 1));
-//        System.out.println("Result with Java 8: " + birthday2(new ArrayList<>(Arrays.asList(4)), 4, 1));
-IntStream.range(0,5).forEach(System.out::println);
+        System.out.println("Migratory Bids: " + migratoryBirds(Arrays.asList(1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4)));
     }
+
+
+    static int migratoryBirds(List<Integer> arr) {
+        Map<Integer, Long> hashMap = arr.stream().collect(Collectors.groupingBy(b -> b, Collectors.counting()));
+        return    hashMap.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == Collections.max(hashMap.values()))
+                .min((a, b) -> a.getKey() > a.getKey() ? 1 : -1).get().getKey();
+    }
+
+
     static int birthday2(List<Integer> s, int d, int m) {
-        return (int) IntStream.rangeClosed(0,s.size()-m).map(a->IntStream.range(a+1,a+m).map(c->s.get(c)).sum()+s.get(a))
-                .boxed().filter(sum-> sum==d).count();
+        return (int) IntStream.rangeClosed(0, s.size() - m).map(a -> IntStream.range(a + 1, a + m).map(c -> s.get(c)).sum() + s.get(a))
+                .boxed().filter(sum -> sum == d).count();
     }
+
     static int birthday(List<Integer> s, int d, int m) {
         int count = 0;
         int sum = 0;
 
-        for (int a = 0; a+m <= s.size(); a++) {
+        for (int a = 0; a + m <= s.size(); a++) {
 
             sum += s.get(a);
             for (int b = a + 1; b < m + a; b++) {

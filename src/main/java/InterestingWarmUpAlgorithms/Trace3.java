@@ -23,7 +23,6 @@ public class Trace3 {
             int shift = x - row * C;
             int column = row % 2 == 0 ? shift : C - shift - 1;
             int row_reverse = R - row - 1;
-            return a[row_reverse][column];
-        }).mapToObj(String::valueOf).collect(Collectors.joining(" "));
+            return a[row_reverse][column];        }).mapToObj(String::valueOf).collect(Collectors.joining(" "));
     }
 }
