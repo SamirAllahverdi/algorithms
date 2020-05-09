@@ -1,9 +1,6 @@
 package XBinaryTree;
 
-import java.util.HashSet;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 public class BinaryTree<K extends Comparable<K>, V> {
 
@@ -87,9 +84,11 @@ public class BinaryTree<K extends Comparable<K>, V> {
         newNode.left = savedLeft;
         return newNode;
     }
+
     private Node findMinFrom(Node x) {
         return x.left == null ? x : findMinFrom(x.left);
     }
+
     private Node deleteMinAndPullUpFrom(Node x) {
         // left is empty. we found it. skip it. just pull-up right. return right sub-tree
         //   we link x.left and x.right which its x.left is null
@@ -114,4 +113,20 @@ public class BinaryTree<K extends Comparable<K>, V> {
     }
 
 
+//    height of binary search tree
+    public int height() {
+        return Math.max(recursion(root.left), recursion(root.right));
+    }
+
+
+    public int recursion(Node root) {
+        List<Integer> list = new ArrayList<>();
+            if (root == null) {
+            return 0;
+        }
+        return Math.max(recursion(root.left), recursion(root.right))+1;
+    }
+
+
 }
+

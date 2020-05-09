@@ -97,7 +97,7 @@ public class XLinkedList {
         Node previous = null;
         Node current = head;
 
-        while (current.next != null) {
+        while (current != null) {
             Node savedNext = current.next;
             current.next = previous;
             previous = current;

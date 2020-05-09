@@ -4,8 +4,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 // nested class for my soluthin
 public class Trace2 {
-    static class KeePTrace {
-        static String direction = "0";
+    static class KeePTrace2 {
+        static String direction = "3";
         static int column;
         static int row = 0;
 
@@ -47,27 +47,31 @@ public class Trace2 {
     /* My soluthion */
 //    nested class
     private static String MySoluthion(int R, int C, int[][] a) {
-        KeePTrace.column = C - 1;
-        System.out.print(a[KeePTrace.row][KeePTrace.column]+ " ");
+        KeePTrace2.column = C - 1;
         return IntStream.range(0, R * C-1).map(x -> {
-            switch (KeePTrace.direction) {
+            switch (KeePTrace2.direction) {
+//                for printing first element , it will use only once. 3 is ele bele.
+//                You can choose any number you want.
+                case "3":
+                KeePTrace2.direction = "0";
+                break;
                 case "0":
-                    if (KeePTrace.row != R-1) {
-                        KeePTrace.row++;
+                    if (KeePTrace2.row != R-1) {
+                        KeePTrace2.row++;
                     } else {
-                        KeePTrace.column--;
-                        KeePTrace.direction = "1";
+                        KeePTrace2.column--;
+                        KeePTrace2.direction = "1";
                     }
                     break;
                 case "1":
-                    if (KeePTrace.row != 0) {
-                        KeePTrace.row--;
+                    if (KeePTrace2.row != 0) {
+                        KeePTrace2.row--;
                     } else {
-                        KeePTrace.column--;
-                        KeePTrace.direction = "0";
+                        KeePTrace2.column--;
+                        KeePTrace2.direction = "0";
                     }
             }
-            return a[KeePTrace.row][KeePTrace.column];
+            return a[KeePTrace2.row][KeePTrace2.column];
         }).mapToObj(String::valueOf).collect(Collectors.joining(" "));
     }
 }

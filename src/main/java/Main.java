@@ -1,26 +1,20 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
 
     public static void main(String[] args) {
-        String a = "ABCD";
 
-//        System.out.println("Original: " + a);
-//        System.out.println(shift(a, 3, 2));
+        int[] a = new int[]{};
 
-
-        List<Integer> abb = new ArrayList<>(Arrays.asList(4, 5, 6));
-        abb.add(3);
-        System.out.println(abb);
-
-
+        System.out.println("Jump: " +hurdleRace(7,a));
     }
 
+    static int hurdleRace(int k, int[] height) {
+        int max = Arrays.stream(height).max().orElse(0);
+        return k>=max ? 0: max-k ;
+    }
 
     public static String shift(String orig, int toLeft, int toRight) {
         int left = toLeft % 4;

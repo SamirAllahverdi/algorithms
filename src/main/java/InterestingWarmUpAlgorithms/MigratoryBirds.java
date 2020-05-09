@@ -3,7 +3,7 @@ package InterestingWarmUpAlgorithms;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class migratoryBirds {
+public class MigratoryBirds {
     public static void main(String[] args) {
         System.out.println("Migratory Bids with stream: " + migratoryBirds(Arrays.asList(1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4)));
         System.out.println("Migratory Bids without stream: " + migratoryBirds2(Arrays.asList(1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4)));
@@ -18,12 +18,13 @@ public class migratoryBirds {
 //        i open entryset stream and compare each one value with max value
 //        (Cllection.max(hashmap.values()) it accept all values , and chose max).
 //        Then , find min key with max value and return it
+
         Map<Integer, Long> hashMap = arr.stream().collect(Collectors.groupingBy(b -> b, Collectors.counting()));
-        System.out.println(hashMap);
+
         return hashMap.entrySet()
                 .stream()
                 .filter(entry -> entry.getValue() == Collections.max(hashMap.values()))
-                .min((a, b) -> a.getKey() > a.getKey() ? 1 : -1).get().getKey();
+                .min((a, b) -> a.getKey() - b.getKey()).get().getKey();
     }
 
     static int migratoryBirds2(List<Integer> arr) {
@@ -31,13 +32,11 @@ public class migratoryBirds {
         for (int types_i = 0; types_i < arr.size(); types_i++) {
            int number = arr.get(types_i);
             if (counType.containsKey(number)) {
-                System.out.println("s" + arr.get(types_i));
                 counType.replace(number, counType.get(number) + 1);
                 continue;
             }
                 counType.put(number, 1);
         }
-        System.out.println(counType);
         int max = Collections.max(counType.values());
 
         for (Map.Entry<Integer, Integer> entry : counType.entrySet()) {

@@ -12,8 +12,8 @@ public class Servlet {
         ServletContextHandler servletContextHandler = new ServletContextHandler();
         TemplateEngine templateEngine = new TemplateEngine("content");
 
-//        servletContextHandler.addServlet(new ServletHolder(new DinamicServlet()), "/d1/*");
-//        servletContextHandler.addServlet(new ServletHolder(new DinamicServlet2(templateEngine)), "/d2/*");
+        servletContextHandler.addServlet(new ServletHolder(new DinamicServlet()), "/d1/*");
+        servletContextHandler.addServlet(new ServletHolder(new DinamicServlet2(templateEngine)), "/d2/*");
 
         servletContextHandler.addServlet(UploadServlet.class, "/upload/*")
                 .getRegistration().setMultipartConfig(new MultipartConfigElement("./from_user"));
