@@ -5,20 +5,68 @@ import java.util.Arrays;
 public class MergeSort {
     public static void main(String[] args) {
 // create a random array
-        int[] data = {4, 5, 1, 2, 7,2,3,4};
+        int[] data = {4, 5, 1, 2, 7, 2, 3, 4};
         // make a copy not to mutate original data
         int[] sorted = data.clone();
+        int[] sorted2 = data.clone();
         // create the new instance of our class
         // running sort
         mergeSort(sorted);
+        mergeSort2(sorted2);
         // print
-        System.out.println("Merge sort: complexity: O(n*log(N))");
         System.out.printf("Source array: %s\n", Arrays.toString(data));
+        System.out.println("Merge sort: complexity: O(n*log(N)), space:O(n*log(N)) ");
         System.out.printf("Sorted array: %s\n", Arrays.toString(sorted));
+        System.out.println("Merge sort: complexity: O(n*log(N)),  space:O(n)");
+        System.out.printf("Sorted array: %s\n", Arrays.toString(sorted2));
     }
 
-    private static void mergeSort(int[] sorted) {
+    //    complexity: O(n*log(N)),  space:O(n)"
+    private static void mergeSort2(int[] sorted2) {
+        if (sorted2.length == 1) return;
+        int[] auxiliary = sorted2.clone();
+        mergeSortHelper(sorted2, 0, sorted2.length - 1, auxiliary);
+    }
+    private static void mergeSortHelper(int[] array, int leIdx, int riIdx, int[] auxiliary) {
+        if (leIdx == riIdx) {
+            return;
+        }
+        int mid = (leIdx + riIdx) / 2;
+        mergeSortHelper(array, leIdx, mid, array);
+        mergeSortHelper(array, mid + 1, riIdx, array);
+        dohelper(array, leIdx, mid, riIdx, auxiliary);
+    }
+    private static void dohelper(int[] array, int leIdx, int mid, int riIdx, int[] auxiliary) {
+        int left = leIdx;
+        int right = mid + 1;
+        int k = leIdx;
+// here must be <=  because mid is also index itself as well as riIndex
+        while (left <= mid && right <= riIdx) {
+            if (auxiliary[left] <= auxiliary[right]) {
 
+                array[k] = auxiliary[left];
+                left++;
+            } else {
+                array[k] = auxiliary[right];
+                right++;
+            }
+            k++;
+        }
+        while (left <= mid) {
+            array[k] = auxiliary[left];
+            left++;
+            k++;
+        }
+        while (right <= riIdx) {
+            array[k] = auxiliary[right];
+            right++;
+            k++;
+        }
+
+    }
+
+    //    complexity:   O(n*log(N)), space:O(n*log(N))
+    private static void mergeSort(int[] sorted) {
         split(sorted, 0, sorted.length - 1);
     }
 
@@ -65,11 +113,13 @@ public class MergeSort {
         while (l < leftSize) {
             sorted[k] = leftArray[l];
             l++;
+            k++;
         }
 
         while (r < rightSize) {
             sorted[k] = rightArray[r];
             r++;
+            k++;
         }
 
     }

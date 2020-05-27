@@ -1,35 +1,28 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class practice {
     public static void main(String[] args) {
-int [] array = {0,1,0,3,12};
-        System.out.println("Before " + Arrays.toString(array));
-        moveZeroes(array);
-        System.out.println("After " + Arrays.toString(array) );
+
+        int[] a = {4,7,9,7,6,7};
+        int[] b = {5,0,0,6,1,6,2,2,4};
+        System.out.println(getSum(17,13));
     }
 
-    public static void moveZeroes(int[] nums) {
-        int index =0 ;
-        int zeroCount = 0;
-        for(int a =0 ; a < nums.length;a++){
-            if(nums[a] != 0){
+    public static int getSum(int a, int b) {
+        if( a == 0){return b;}
+        if(b == 0){return a;}
+        if( Math.abs(a) == Math.abs(b)){
+            System.out.println( Math.abs(a));
+            System.out.println( Math.abs(b));
+            return 0;}
 
-                nums[index] = nums[a];
-                index++;
-            }else{ zeroCount++;}
-        }
-        System.out.println("Middle " + Arrays.toString(nums));
-
-        for(int b = index; b < nums.length;b++){
-            System.out.println(b);
-            nums[b]=0;
-
-        }
+        if (a < 0 || b<0) return getSum(++a,--b);
+        else  return getSum(--a,++b);
     }
-
 }
+
+

@@ -1,133 +1,76 @@
 package hackerRank;
 
-import Practice.Main;
-
-import javax.swing.plaf.IconUIResource;
-import java.awt.image.AreaAveragingScaleFilter;
-import java.io.*;
-import java.security.KeyStore;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Practise {
-
-
     public static void main(String[] args) {
-        String valley = "DDUUDDUDUUUD";
-//        System.out.println("Count Valley: " + countingValleys(valley.length(), valley));
 
-        System.out.println(jumpingOnClouds(new int[]{0, 0, 1, 0, 0, 1, 1, 0}, 2));
+        String[] array = {"11101", "10101", " 11001", " 10111", " 10000", " 01110"};
+        System.out.println(Arrays.toString(acmTeam(array)));
     }
 
-    static int[] permutationEquation(int[] p) {
-//        Object[] objects = IntStream.rangeClosed(1, p.length).boxed().map(a -> IntStream.range(0, p.length).filter(c -> p[c] == a)).toArray();
-//       2,3,1
-        int[] sequence = new int[p.length];
-        for (int a = 1; a <= p.length; a++) {
-//            1,2,3,4,5
-            for (int b = 0; b < p.length - 1; b++) {
-                if (a == p[b + 1]) {
-                    sequence[a - 1] = b + 1;
-                }
-            }
-        }
-        return sequence;
-    }
-
-
-    static int jumpingOnClouds(int[] c, int k) {
-        int energy = 100;
-        for (int a = 0; a < c.length; ) {
-            if (c[a] == 1) {
-                energy = energy - 3;
-                if (c[c.length - 1] == 1) {
-
-
-                }
-            } else {
-                energy = energy - 1;
-            }
-        }
-        return energy;
-    }
-
-
-    static int countingValleys(int n, String s) {
+    static int[] acmTeam(String[] topic) {
+        int[] result = {0, 0};
+        int max = 0;
         int count = 0;
-        int current = 0;
-        for (int a = 0; a < n; a++) {
-            if (s.charAt(a) == 'U') {
-                if (current == -1) {
+        for (int a = 0; a < topic.length; a++) {
+            for (int b = a; b < topic.length; b++) {
+                int countR = helper(a, b, topic);
+                System.out.println("A " + a + " B " + b);
+
+                if (countR > max) {
+                    max = countR;
+                    count = 1;
+                } else if (countR == max) {
+                    System.out.println("COUNTR " + countR);
                     count++;
                 }
-                current++;
-            } else {
-                current--;
+            }
+        }
+        result[0] = max;
+        result[1] = count;
+        return result;
+    }
+
+    private static int helper(int first, int second, String[] topic) {
+        int count = 0;
+        for (int a = 0; a < topic[0].length(); a++) {
+            if (topic[first].charAt(a) == '1' || topic[second].charAt(a) == '1') {
+//                System.out.println("INDEX " +a);
+//                System.out.println("DOHELPER FIRST-> " + topic[first]+" SECOND -> " + topic[second]);
+                count++;
             }
         }
         return count;
     }
 
 
-    static int pageCount(int n, int p) {
-
-        int second;
-        int first = p / 2;
-        if ((n % 2 != 0 && n - 1 == p) || p == n || p == 1) {
-            System.out.println("s");
-            return 0;
-        } else if (n % 2 == 0 && p % 2 != 0) {
-            System.out.println(((6 - 3) / 2) + 1);
-            second = ((n - p) / 2) + 1;
-            System.out.println("second:" + second);
-            return Math.min(first, second);
-        }
-        second = (n - p) / 2;
-        return Math.min(first, second);
-    }
-
-    // Complete the dayOfProgrammer function below.
-    static String dayOfProgrammer(int year) {
-        int divby400 = year / 100;
-        System.out.println(divby400);
-        if (year < 1918) {
-            if (year % 4 == 0) {
-                return "12.09." + year;
-            } else {
-                return "13.09." + year;
-            }
-        } else if (year > 1918) {
-            if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-                return "12.09." + year;
-            } else {
-                return "13.09." + year;
-            }
-        } else {
-            return "30.09." + year;
+    static int equalizeArray(int[] arr) {
+        int len = arr.length;
+        int aux[] = new int[101];
+        for (int i = 0; i < len; i++) {
+            int index = arr[i];
+            aux[index]++;
         }
 
+        int maxFreqCount = getMaxFreqCount(aux);
+        return len - maxFreqCount;
     }
-//
-//    static int countingValleys(int n, String s) {
-//        int valleyEnterAndExit = 0;
-//        int previousPosition = 0;
-//        int currentPosition = 0;
-//        int seaLevel = 0;
-//        for (int a = 0; a < s.length(); a++) {
-//            previousPosition = currentPosition;
-//            if (seaLevel == currentPosition && previousPosition >= 0) {
-//                valleyEnterAndExit++;
-//            }
-//            if (s.charAt(a) == 'D') {
-//                currentPosition--;
-//            } else { // s.charAt(a) == 'U'
-//                currentPosition++;
-//            }
-//        }
-//        return valleyEnterAndExit;
-//    }
+
+    private static int getMaxFreqCount(int[] aux) {
+        int maxFreqCount = Integer.MIN_VALUE;
+        System.out.println("ARRAY" + Arrays.toString(aux));
+        for (int freqCount : aux) {
+            if (freqCount > maxFreqCount) {
+                maxFreqCount = freqCount;
+            }
+        }
+        return maxFreqCount;
+    }
+
 
 }
