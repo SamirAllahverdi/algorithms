@@ -1,6 +1,4 @@
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.Arrays;
 
 public class Main {
 
@@ -8,9 +6,22 @@ public class Main {
 
         int[] a = new int[]{};
 
-        System.out.println("Jump: " +hurdleRace(7,a));
+        System.out.println(chocolateFeast(10,2,5));
     }
+    static int chocolateFeast(int n, int c, int m) {
 
+        int buyedBars =n/c;
+        int wraps=buyedBars;
+        while(wraps >= m){
+            System.out.println("t");
+            int nextWraps = (wraps/m);
+            int r = buyedBars% m;
+            buyedBars =buyedBars + nextWraps;
+            wraps= r+nextWraps;
+        }
+        return buyedBars  ;
+
+    }
     static int hurdleRace(int k, int[] height) {
         int max = Arrays.stream(height).max().orElse(0);
         return k>=max ? 0: max-k ;

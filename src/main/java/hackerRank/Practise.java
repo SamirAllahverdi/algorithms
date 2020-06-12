@@ -1,40 +1,47 @@
 package hackerRank;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Stack;
+import java.util.stream.IntStream;
 
 
 public class Practise {
     public static void main(String[] args) {
 
         String[] array = {"11101", "10101", " 11001", " 10111", " 10000", " 01110"};
-        System.out.println(Arrays.toString(acmTeam(array)));
+//        System.out.println(Arrays.toString(acmTeam(array)));
+        System.out.println(superReducedString("aaabbccdddad"));
     }
 
-    static int[] acmTeam(String[] topic) {
-        int[] result = {0, 0};
-        int max = 0;
-        int count = 0;
-        for (int a = 0; a < topic.length; a++) {
-            for (int b = a; b < topic.length; b++) {
-                int countR = helper(a, b, topic);
-                System.out.println("A " + a + " B " + b);
 
-                if (countR > max) {
-                    max = countR;
-                    count = 1;
-                } else if (countR == max) {
-                    System.out.println("COUNTR " + countR);
-                    count++;
-                }
+    static String superReducedString(String str) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            System.out.println( i +  " TURN");
+            Character ch = str.charAt(i);
+            System.out.println(stack.toString());
+            if (!stack.isEmpty() && ch == stack.peek()) {
+                System.out.println("Poped "+ ch);
+                stack.pop();
+            } else {
+                System.out.println("ADDED " + ch);
+                stack.push(ch);
             }
+            System.out.println("_________________________");
         }
-        result[0] = max;
-        result[1] = count;
-        return result;
+
+        /* Print final result */
+        if (stack.isEmpty()) {
+            return "Empty String";
+        } else {
+            String result = "";
+            for (char ch : stack) {
+                result = result + ch;
+            }
+            return result;
+        }
     }
+
 
     private static int helper(int first, int second, String[] topic) {
         int count = 0;

@@ -1,11 +1,6 @@
 package InterestingWarmUpAlgorithms;
 
-import jdk.swing.interop.SwingInterOpUtils;
-import org.eclipse.jetty.util.InetAddressSet;
-
-import java.lang.reflect.Array;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
 
 public class ClimbingTheLeaerBord {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package XHashMap;
 
-import java.util.*;
+import java.util.NoSuchElementException;
 
 public class XHashMap {
     private final int[] keys;

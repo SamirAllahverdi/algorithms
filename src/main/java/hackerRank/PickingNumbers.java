@@ -1,10 +1,5 @@
 package hackerRank;
 
-import java.lang.reflect.Array;
-import java.math.BigInteger;
-import java.util.*;
-import java.util.stream.Collectors;
-
 public class PickingNumbers {
     public static void main(String[] args) {
         int[] array = {0, 0, 1, 0, 0, 1, 1, 0};

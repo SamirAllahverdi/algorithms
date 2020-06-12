@@ -1,14 +1,6 @@
 package Practice;
 
-import XLinkedList.XLinkedList;
-import org.w3c.dom.Node;
-
-import javax.naming.NameClassPair;
-import javax.xml.stream.FactoryConfigurationError;
-import java.nio.charset.IllegalCharsetNameException;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.Arrays;
 
 public class Main {
 

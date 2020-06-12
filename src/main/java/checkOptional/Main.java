@@ -1,8 +1,5 @@
 package checkOptional;
 
-import java.io.File;
-import java.util.Optional;
-
 public class Main {
     private  int id=2323;
 

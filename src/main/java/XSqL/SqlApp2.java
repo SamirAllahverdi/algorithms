@@ -2,11 +2,11 @@ package XSqL;
 
 import org.postgresql.util.PSQLException;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class SqlApp2 {
     private final static String URL = "jdbc:postgresql://localhost:5432/postgres";

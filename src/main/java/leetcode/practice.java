@@ -1,9 +1,5 @@
 package leetcode;
 
-import java.lang.reflect.Array;
-import java.util.*;
-import java.util.stream.IntStream;
-
 public class practice {
     public static void main(String[] args) {
 

@@ -1,6 +1,9 @@
 package XSqL;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class SqlAPP1 {
     private final static String URL = "jdbc:postgresql://localhost:5432/postgres";
