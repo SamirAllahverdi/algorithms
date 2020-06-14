@@ -1,4 +1,4 @@
-package InterestingWarmUpAlgorithms;
+package InterestingWarmUpAlgorithms.Trace;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

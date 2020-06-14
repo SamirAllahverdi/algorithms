@@ -1,4 +1,4 @@
-package InterestingWarmUpAlgorithms;
+package InterestingWarmUpAlgorithms.Trace;
 
 import java.util.LinkedList;
 import java.util.List;

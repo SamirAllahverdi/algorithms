@@ -1,7 +1,8 @@
-package InterestingWarmUpAlgorithms;
+package InterestingWarmUpAlgorithms.Trace;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
 // nested class for my soluthin
 public class Trace2 {
     static class KeePTrace2 {
