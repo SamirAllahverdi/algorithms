@@ -26,7 +26,7 @@ public class AltChar {
     return s.chars().mapToObj(c -> (char)c).collect(Collectors.toList());
   }
 
-  static <T, A> A fold(Iterable<T> data, A initial, BiFunction<A, T, A> f) {
+  static <A, T> A fold(Iterable<T> data, A initial, BiFunction<A, T, A> f) {
     Iterator<T> it = data.iterator();
     A acc = initial;
     while (it.hasNext()) {
@@ -50,27 +50,6 @@ public class AltChar {
     ).a;
   }
 
-  static int alternatingCharacters2(String s) {
-    return fold(
-        sToList(s),
-        new Pair<>(0, '_'),
-        (p, c) -> p.b != c ? new Pair<>(p.a, c) : new Pair<>(p.a+1, c)
-    ).a;
-  }
-
-  static int length(String s) {
-    BiFunction<
-        Integer,
-        Character,
-        Integer
-    > f = (i, c) -> i+1;
-
-    return fold(
-        sToList(s),
-        0,
-        f
-    );
-  }
 
   public static void main(String[] args) {
     String s = "ABBCCDD";
