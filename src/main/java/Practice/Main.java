@@ -6,11 +6,13 @@ public class Main {
 
 
     public static void main(String[] args) {
-       int [] apples ={2,-2,3};
+        int[] apples = {2, -2, 3};
 
-    int a= (int) Arrays.stream(apples).filter(b->b>2).count();
+        int a = (int) Arrays.stream(apples).filter(b -> b > 2).count();
         System.out.println(a);
     }
+
+
 
 
     static int find_binaryR(int[] origin, int number, int l, int r) {
