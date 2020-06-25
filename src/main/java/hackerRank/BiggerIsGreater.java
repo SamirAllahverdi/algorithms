@@ -9,22 +9,6 @@ public class BiggerIsGreater {
     }
 
 
-    // Complete the biggerIsGreater function below.
-    static String biggerIsGreater(String w) {
-
-        String nw = w;
-
-
-        for (int a = 2; a <= w.length(); a++) {
-//            if (check(a, w)) {
-//
-//            }
-        }
-
-
-        return "";
-    }
-
     private static int check(int a, String w) {
 
         String orginal = w;
