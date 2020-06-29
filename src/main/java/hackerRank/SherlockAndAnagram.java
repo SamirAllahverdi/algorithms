@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 public class SherlockAndAnagram {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
         long startTime = System.currentTimeMillis();
 
         String test = "cdcd";
@@ -21,33 +21,6 @@ public class SherlockAndAnagram {
     }
 
 
-//    TODO get stuck in 1 test case
-    static int sherlockAndAnagrams(String s) {
-        return IntStream.range(1, s.length()).map(a -> findCount(a, s)).reduce(0, Integer::sum);
-    }
-    private static int findCount(int a, String s) {
-        int count = 0;
-        for (int c = 0; c < s.length() - a; c++) {
-            String st = s.substring(c, c + a);
-            for (int b = c + 1; b <= s.length() - a; b++) {
-                String st2 = s.substring(b, b + a);
-                if (IsAnagram(st, st2)) {
-                    count++;
-                }
-            }
-        }
-        return count;
-    }
-    private static boolean IsAnagram(String st, String st2) {
-        int[] lettermap = new int[26];
-        for(int j=0; j<st.length(); j++){
-            char ch = st.charAt(j);
-            lettermap[ch - 'a']++;
-            ch = st2.charAt(j);
-            lettermap[ch - 'a']--;
-        }
-       return IntStream.range(0,lettermap.length).anyMatch(a-> lettermap[a] != 0) ? false :true;
-    }
 
 
     static int sherlockAndAnagrams2(String s)
@@ -73,7 +46,7 @@ public class SherlockAndAnagram {
     }
     static boolean check(String a,String b)
     {
-        int ch[]=new int[26];
+        int  [] ch=new int[26];
         for(int i=0;i<a.length();i++)
             ch[a.charAt(i)-97]++;
         for(int i=0;i<a.length();i++)
@@ -85,4 +58,34 @@ public class SherlockAndAnagram {
         System.out.println("TRUE STRINGS " + a + " && " + b);
         return true;
     }
+
+
+    //    TODO get stuck in 1 test case
+    static int sherlockAndAnagrams(String s) {
+        return IntStream.range(1, s.length()).map(a -> findCount(a, s)).reduce(0, Integer::sum);
+    }
+    private static int findCount(int a, String s) {
+        int count = 0;
+        for (int c = 0; c < s.length() - a; c++) {
+            String st = s.substring(c, c + a);
+            for (int b = c + 1; b <= s.length() - a; b++) {
+                String st2 = s.substring(b, b + a);
+                if (IsAnagram(st, st2)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    private static boolean IsAnagram(String st, String st2) {
+        int[] lettermap = new int[26];
+        for(int j=0; j<st.length(); j++){
+            char ch = st.charAt(j);
+            lettermap[ch - 'a']++;
+            ch = st2.charAt(j);
+            lettermap[ch - 'a']--;
+        }
+        return IntStream.range(0,lettermap.length).anyMatch(a-> lettermap[a] != 0) ? false :true;
+    }
+
 }
