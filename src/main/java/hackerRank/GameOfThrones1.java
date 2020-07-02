@@ -10,6 +10,13 @@ public class GameOfThrones1 {
         System.out.println(gameOfThrones(test));
     }
 
+
+
+    static String gameOfThrones2(String s) {
+        return s.chars().boxed().collect(Collectors.groupingBy(a->a,Collectors.counting())).entrySet().
+                stream().filter(a->a.getValue() == 1 || a.getValue()%2 ==1).count()>=2? "NO" : "YES";
+    }
+
     static String gameOfThrones(String s) {
 
         int[] array=new int[26];
@@ -19,6 +26,7 @@ public class GameOfThrones1 {
 
        return Arrays.stream(array).filter(a-> a == 1 || a%2 ==1).count() >= 2? "NO" : "YES";
     }
+
 
 
 }
