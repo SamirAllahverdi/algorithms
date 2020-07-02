@@ -77,6 +77,7 @@ public class SherlockAndAnagram {
         }
         return count;
     }
+
     private static boolean IsAnagram(String st, String st2) {
         int[] lettermap = new int[26];
         for(int j=0; j<st.length(); j++){
