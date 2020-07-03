@@ -11,7 +11,6 @@ public class GameOfThrones1 {
     }
 
 
-
     static String gameOfThrones2(String s) {
         return s.chars().boxed().collect(Collectors.groupingBy(a->a,Collectors.counting())).entrySet().
                 stream().filter(a->a.getValue() == 1 || a.getValue()%2 ==1).count()>=2? "NO" : "YES";
