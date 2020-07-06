@@ -1,8 +1,7 @@
 package Practice;
 
-public interface Class {
+public interface Class extends BaseClass {
 int x =3;
 
- void getX();
 
 }

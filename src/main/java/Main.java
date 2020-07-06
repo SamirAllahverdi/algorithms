@@ -8,6 +8,10 @@ public class Main {
 
         System.out.println(chocolateFeast(10,2,5));
     }
+
+
+
+
     static int chocolateFeast(int n, int c, int m) {
 
         int buyedBars =n/c;

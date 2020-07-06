@@ -10,10 +10,11 @@ public class Main {
 
         int a = (int) Arrays.stream(apples).filter(b -> b > 2).count();
         System.out.println(a);
+
+
+//        Class clas =new Item();
+//        clas
     }
-
-
-
 
     static int find_binaryR(int[] origin, int number, int l, int r) {
         if (l > r) return -1;

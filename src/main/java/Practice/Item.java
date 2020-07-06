@@ -1,9 +1,11 @@
 package Practice;
 
-public class Item {
+public class Item implements Class {
     private String product;
     private int qty;
     private int unitPrice;
+    private  static int a ;
+
 
     public Item(String product, int qty, int unitPrice) {
         this.product = product;
@@ -11,6 +13,10 @@ public class Item {
         this.unitPrice = unitPrice;
 
     }
+    public Item() {
+
+    }
+
 
     public int price() {
         return this.qty * this.unitPrice;
@@ -21,5 +27,10 @@ public class Item {
 
     public String toString() {
         return this.product + ": " + this.qty;
+    }
+
+    @Override
+    public String fun() {
+        return null;
     }
 }
