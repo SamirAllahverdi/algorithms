@@ -1,4 +1,4 @@
-package hackerRank;
+package hackerRank.mixed;
 
 import java.util.List;
 import java.util.stream.Collectors;

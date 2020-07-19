@@ -1,4 +1,4 @@
-package hackerRank;
+package hackerRank.mixed;
 
 import javax.naming.InsufficientResourcesException;
 import java.util.Arrays;

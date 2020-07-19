@@ -1,9 +1,6 @@
 package hackerRank.easy;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.OptionalInt;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class MakingAnagrams {

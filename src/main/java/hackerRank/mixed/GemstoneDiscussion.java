@@ -1,4 +1,4 @@
-package hackerRank;
+package hackerRank.mixed;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package hackerRank;
+package hackerRank.mixed;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

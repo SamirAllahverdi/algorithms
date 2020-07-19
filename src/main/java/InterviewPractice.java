@@ -1,14 +1,15 @@
+import java.time.Clock;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
 public class InterviewPractice {
     public static void main(String[] args) {
-        Runtime runtime = Runtime.getRuntime();
-        runtime.gc();
+        Clock clock = Clock.systemDefaultZone();
+        Instant instantObj = clock.instant();
 
-        int [] array ={10, 7, 2, 8, 3};
-
-
+        System.out.println(clock);
+        System.out.println(instantObj);
     }
 
 
