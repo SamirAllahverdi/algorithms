@@ -46,7 +46,6 @@ public class SherlockAndValidStringApp {
         m.forEach(a -> System.out.println(a.a + " / " + a.b));
         if (m.size() == 1) return YES;
         if (m.size() > 2) return NO;
-        // I know that that I have only 2 letters
         if (m.get(1).a - m.get(0).a == 1 && m.get(1).b.size() == 1) return YES;
 
         if (m.get(0).a == 1 && m.get(0).b.size() == 1) {
