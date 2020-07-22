@@ -23,6 +23,7 @@ public class GameOfThrones1 {
             array[(int) s.charAt(a) -'a']++;
         });
 
+
        return Arrays.stream(array).filter(a-> a == 1 || a%2 ==1).count() >= 2? "NO" : "YES";
     }
 
