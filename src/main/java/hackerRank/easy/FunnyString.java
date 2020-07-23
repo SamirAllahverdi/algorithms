@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FunnyString {
-
+    /**
+     * https://www.hackerrank.com/challenges/organizing-containers-of-balls/problem
+     */
     public static void main(String[] args) {
         String a = "acxz";
         String b ="bcxz";
