@@ -5,14 +5,15 @@ import java.util.List;
 
 public class InterviewPractice {
     public static void main(String[] args) {
-        Clock clock = Clock.systemDefaultZone();
-        Instant instantObj = clock.instant();
-
-        System.out.println(clock);
-        System.out.println(instantObj);
+        String name = "aa";
+        changeToHomer(name);
+        System.out.println(name);
     }
 
 
+    static void changeToHomer(String name) {
+        name = "Homer";
+    }
 
     private static boolean isPower(int c) {
         System.out.println("IS POWER " + c);
