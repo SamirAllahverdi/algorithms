@@ -23,11 +23,20 @@ public class TwoStrings {
         return hashSet.stream().anyMatch(a -> s2.contains(String.valueOf(a))) ? "YES" : "NO";
     }
 
-//    FAILED IN 2 TEST CASES
+//    FAILED IN 2 TEST CASES.
     static String twoStringsWithStream(String s1, String s2) {
 
         return IntStream.range(0, s1.length()).anyMatch(a -> s2.contains(String.valueOf(s1.charAt(a)))) ? "YES" : "NO";
     }
 
+//    FAILED IN 2 TEST CASES, TOO.
+    static String twoStringstest(String s1, String s2) {
 
+        for(char c : s1.toCharArray()){
+            if(s2.indexOf(c) > -1){
+                return "YES";
+            }
+        }
+        return "NO";
+    }
 }
