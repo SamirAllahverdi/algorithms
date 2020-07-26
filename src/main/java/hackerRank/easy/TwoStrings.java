@@ -30,7 +30,7 @@ public class TwoStrings {
     }
 
 //    FAILED IN 2 TEST CASES, TOO.
-    static String twoStringstest(String s1, String s2) {
+    static String twoString2(String s1, String s2) {
 
         for(char c : s1.toCharArray()){
             if(s2.indexOf(c) > -1){
