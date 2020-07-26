@@ -94,8 +94,8 @@ public class KnightLOnChessboard {
     }
 
     static class Pair {
-        int x;
-        int y;
+        public final int x;
+        public final int y;
 
         public Pair(int x, int y) {
             this.x = x;
@@ -104,7 +104,7 @@ public class KnightLOnChessboard {
 
         @Override
         public int hashCode() {
-            return 37 + this.x + this.y;
+            return x << 16 + y;
         }
 
         @Override
