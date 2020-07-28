@@ -17,7 +17,7 @@ public class CountLuck {
         System.out.println(countLuck(matrix, k));
 
 
-//        FOR LOOKING at GRID
+//         FOR DEBUGGING ARRAY
 
 //        Arrays.stream(matrix).forEach(a -> {
 //            System.out.print(a);
@@ -51,7 +51,7 @@ public class CountLuck {
 
         @Override
         public String toString() {
-            return "Pair:  " +
+            return "Location:  " +
                     "y = " + y +
                     ", x = " + x;
         }
@@ -66,8 +66,8 @@ public class CountLuck {
     }
 
     static String countLuck(String[] matrix, int k) {
-        Location start = findStartingPoint(matrix, "M");
-        Location destination = findStartingPoint(matrix, "*");
+        Location start = findSpecificPoint(matrix, "M");
+        Location destination = findSpecificPoint(matrix, "*");
 
         char[][] charArray = convertToCharArr(matrix);
 
@@ -131,9 +131,9 @@ public class CountLuck {
                 .collect(Collectors.toList());
     }
 
-    private static Location findStartingPoint(String[] matrix, String l) {
+    private static Location findSpecificPoint(String[] matrix, String specific) {
         for (int a = 0; a < matrix.length; a++) {
-            if (matrix[a].contains(l)) return new Location(a, matrix[a].indexOf(l));
+            if (matrix[a].contains(specific)) return new Location(a, matrix[a].indexOf(specific));
         }
         return new Location(0, 0);
     }
