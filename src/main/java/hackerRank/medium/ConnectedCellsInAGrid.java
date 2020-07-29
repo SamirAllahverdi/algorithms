@@ -16,7 +16,7 @@ public class ConnectedCellsInAGrid {
                 {1, 0, 0, 0}
         };
 // FOR second solution
-        int[][] matrix2= {{1, 1, 0, 0},
+        int[][] matrix2 = {{1, 1, 0, 0},
                 {0, 1, 1, 0},
                 {0, 0, 1, 0},
                 {1, 0, 0, 0}
@@ -95,16 +95,7 @@ public class ConnectedCellsInAGrid {
     }
 
     private static List<Location> possibleAdjacents(Location l, int[][] matrix) {
-        List<Location> adjacents = new ArrayList<>();
-        adjacents.add(new Location(l.y + 1, l.x));
-        adjacents.add(new Location(l.y - 1, l.x));
-        adjacents.add(new Location(l.y, l.x + 1));
-        adjacents.add(new Location(l.y, l.x - 1));
-
-        adjacents.add(new Location(l.y + 1, l.x + 1));
-        adjacents.add(new Location(l.y + 1, l.x - 1));
-        adjacents.add(new Location(l.y - 1, l.x + 1));
-        adjacents.add(new Location(l.y - 1, l.x - 1));
+        List<Location> adjacents = fillArray(l);
 
         return adjacents.stream().filter(a ->
                 (a.x >= 0 && a.x < matrix[0].length)
@@ -112,6 +103,17 @@ public class ConnectedCellsInAGrid {
                         && matrix[a.y][a.x] == 1)
                 .collect(Collectors.toList());
 
+    }
+
+    private static List<Location> fillArray(Location l) {
+        return Arrays.asList(new Location(l.y + 1, l.x),
+                new Location(l.y - 1, l.x),
+                new Location(l.y, l.x + 1),
+                new Location(l.y, l.x - 1),
+                new Location(l.y + 1, l.x + 1),
+                new Location(l.y + 1, l.x - 1),
+                new Location(l.y - 1, l.x + 1),
+                new Location(l.y - 1, l.x - 1));
     }
 
 
