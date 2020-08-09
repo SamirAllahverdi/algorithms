@@ -76,7 +76,7 @@ public class ConnectedCellsInAGrid {
     }
 
     private static int getRegionCellsCount(int[][] matrix, Location start) {
-        LinkedList<Location> queue = new LinkedList<>();
+        Queue<Location> queue = new LinkedList<>();
         queue.add(start);
 
         matrix[start.y][start.x] = -1;
