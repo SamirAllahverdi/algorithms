@@ -8,72 +8,76 @@ public class BreadthFirstSearchShortestReach {
      * https://www.hackerrank.com/challenges/bfsshortreach/problem
      */
 
-
-    static int V;
-    static LinkedList<Integer> [] adj;
-    static int [] distance;
-    static boolean [] visited;
-    static void addEdge(int u,int v){
-        adj[u].add(v);
-        adj[v].add(u);
-    }
-
     public static void main(String[] args) {
+        int n = 4;
+        int m = 2;
+        int s = 1;
+        int[][] edges = {{1, 2}, {1, 3}};
 
-        System.out.println(b);
+        System.out.println(Arrays.toString(bfs(n, m, edges, s)));
     }
-    static void initialize(int V,int m,int [][] edges){
-        BreadthFirstSearchShortestReach.V=V;
-        visited=new boolean[V+1];
-        distance=new int[V+1];
-        adj=(LinkedList<Integer> [] ) new LinkedList[V+1];
 
 
-        for(int i=0;i<=V;i++){
-            adj[i]= new LinkedList<>();
+    static LinkedList<LinkedList<Integer>> initLinkedList(int n, int m, int[][] edges) {
+        LinkedList<LinkedList<Integer>> adj = new LinkedList<>();
+        for (int i = 0; i <= n; i++) {
+            adj.add(new LinkedList<>());
         }
 
-
-        for(int i=0;i<m;i++){
-            addEdge(edges[i][0],edges[i][1]);
+        for (int i = 0; i < m; i++) {
+            adj.get(edges[i][0]).add(edges[i][1]);
+            adj.get(edges[i][1]).add(edges[i][0]);
         }
+
+        return adj;
     }
-    // Complete the bfs function below.
+
     static int[] bfs(int n, int m, int[][] edges, int s) {
-        initialize(n,m,edges);
-        Queue<Integer> q=new LinkedList<>();
-        int result []=new int[n-1];
+        LinkedList<LinkedList<Integer>> adj = initLinkedList(n, m, edges);
+
+        boolean[] visited = new boolean[n + 1];
+        int[] distance = new int[n + 1];
+
+
+        Queue<Integer> q = new LinkedList<>();
         q.add(s);
-        visited[s]=true;
-        distance[s]=0;
-        while(q.size()!=0){
-            int parent=q.remove();
-            for(int w:BreadthFirstSearchShortestReach.adj[parent]){
-                if(!visited[w])
-                {
+
+        visited[s] = true;
+        distance[s] = 0;
+
+        while (q.size() != 0) {
+            int parent = q.remove();
+            for (int w : adj.get(parent)) {
+                if (!visited[w]) {
                     q.add(w);
-                    distance[w]=distance[parent]+6;
-                    visited[w]=true;
+                    distance[w] = distance[parent] + 6;
+                    visited[w] = true;
                 }
             }
-
         }
 
-        int original=1;
-        int trimmed=0;
-        while(original!=n+1){
-            if(original==s){
-                original+=1;
+        return getResults(n, distance, s);
+    }
+
+    private static int[] getResults(int n, int[] distance, int s) {
+        int[] result = new int[n - 1];
+
+        int original = 1;
+        int trimmed = 0;
+
+        while (original < n + 1) {
+            if (original == s) {
+                original++;
                 continue;
+            } else if (distance[original] == 0) {
+                result[trimmed] = -1;
+            } else {
+                result[trimmed] = distance[original];
             }
-            result[trimmed]=distance[original];
-            if(distance[original]==0){
-                result[trimmed]=-1;
-            }
-            original+=1;
-            trimmed+=1;
-        }
 
+            original ++;
+            trimmed ++;
+        }
         return result;
     }
 }
