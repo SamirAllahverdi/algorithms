@@ -5,10 +5,9 @@ import java.util.*;
 public class TheBombermanGame {
 
     public static void main(String[] args) {
-        int n = 10;
+        int n = 3;
         String[] grid = {".......", "...0...", "....0..", ".......", "00.....", "00....."};
-
-        Arrays.stream(bomberMan(n, grid)).forEach(a -> System.out.println(Arrays.toString(a)));
+        System.out.println(Arrays.toString(bomberMan(n, grid)));
     }
 
     static class Location {
@@ -32,16 +31,13 @@ public class TheBombermanGame {
         }
     }
 
-    static char[][] bomberMan(int n, String[] grid) {
+    static String[] bomberMan(int n, String[] grid) {
 
         char[][] charArray = fillCharArray(grid);
 
-        System.out.println("Char Array: ");
-        Arrays.stream(charArray).forEach(a -> System.out.println(Arrays.toString(a)));
-
         Set<Location> hashSet = new HashSet<>();
-        int newN = n % 3;
-        for (int a = 0; a < newN; a++) {
+
+        for (int a = 0; a < n; a++) {
             if (a % 3 == 0) {
                 firstSecond(charArray);
             } else if (a % 3 == 1) {
@@ -52,8 +48,23 @@ public class TheBombermanGame {
             }
         }
 
-        return charArray;
+        return convToString(charArray);
 
+    }
+
+    private static String[] convToString(char[][] charArray) {
+        StringBuilder[] array = new StringBuilder[charArray.length];
+        String[] stArray = new String[charArray.length];
+        for (int a = 0; a < charArray.length; a++) {
+            array[a] = new StringBuilder();
+
+            for (int b = 0; b < charArray.length; b++) {
+                array[a].append(charArray[a][b]);
+            }
+            stArray[a] = array[a].toString();
+        }
+
+        return stArray;
     }
 
     private static char[][] fillCharArray(String[] grid) {
@@ -75,33 +86,24 @@ public class TheBombermanGame {
 
         for (int a = 0; a < charArray.length; a++) {
             for (int b = 0; b < charArray[0].length; b++) {
-//                System.out.println("A " + a + ", B " + b);
                 if (charArray[a][b] == '.') {
-                    charArray[a][b] = '0';
+                    charArray[a][b] = 'O';
                     locSet.add(new Location(a, b));
                 }
 
             }
         }
-//
-//        System.out.println("---------");
-//        Arrays.stream(charArray).forEach(a -> System.out.println(Arrays.toString(a)));
 
-//        thirdSecond(locSet, charArray);
         return locSet;
     }
 
     private static void thirdSecond(Set<Location> locSet, char[][] charArray) {
 
-//        locSet.stream().forEach(a-> System.out.println("Loc y " + a.y + ", Loc x " + a.x ));
 
         for (int a = 0; a < charArray.length; a++) {
             for (int b = 0; b < charArray[0].length; b++) {
                 if (!locSet.contains(new Location(a, b))) {
-//                    System.out.println("___________________________");
-//                    System.out.println("MUST BE DENOTED LOC " + a + "  " + b);
                     detonate(a, b, charArray);
-//                    charArray[a][b] = '0';
                 }
             }
         }
@@ -112,14 +114,10 @@ public class TheBombermanGame {
         getPossibleDetonatedLocations(a, b).stream().
                 filter(l -> (l.y < charArray.length && l.y >= 0) && (l.x < charArray[0].length && l.x >= 0))
                 .forEach(l -> {
-                    if (charArray[l.y][l.x] == '0') {
-                        System.out.println("L:  y = " + l.y + " x = " + l.x);
+                    if (charArray[l.y][l.x] == 'O') {
                         charArray[l.y][l.x] = '.';
                     }
                 });
-
-        System.out.println("_______________________________");
-        Arrays.stream(charArray).forEach(c -> System.out.println(Arrays.toString(c)));
 
     }
 
