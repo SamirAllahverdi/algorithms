@@ -1,8 +1,6 @@
 package leetcode;
 
-import freemarker.core.JSONOutputFormat;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 public class LongestSubstringWithoutRepeatingCharacters {
@@ -18,8 +16,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
 //        First
         System.out.println(lengthOfLongestSubstring(s));
+
 //        Second
         System.out.println(lengthOfLongestSubstring2(s));
+
     }
 
     /**

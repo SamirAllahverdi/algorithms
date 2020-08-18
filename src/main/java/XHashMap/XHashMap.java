@@ -47,7 +47,6 @@ public class XHashMap {
         }
     }
 
-
     public void put(int key, String value) {
         int index = index(key);
 
