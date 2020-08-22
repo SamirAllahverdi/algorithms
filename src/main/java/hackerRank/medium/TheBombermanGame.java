@@ -5,69 +5,67 @@ import java.util.*;
 public class TheBombermanGame {
 
     public static void main(String[] args) {
-        int n = 3;
-        String[] grid = {".......", "...0...", "....0..", ".......", "00.....", "00....."};
-        System.out.println(Arrays.toString(bomberMan(n, grid)));
+        int n = 5;
+//        String[] grid = {".......", "...0...", "....0..", ".......", "00.....", "00....."};
+        String[] grid2 = {".......", "...O.O.", "....O..", "..O....", "OO...OO", "OO.O..."};
+
+        Arrays.stream(bomberMan(n, grid2)).forEach(a -> {
+            System.out.println(Arrays.toString(a));
+            System.out.println();
+        });
     }
 
     static class Location {
-        int y;
-        int x;
+        public final int y;
+        public final int x;
 
         public Location(int y, int x) {
-            this.y = y;
             this.x = x;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            Location location = (Location) o;
-            return location.y == this.y && location.x == this.x;
+            this.y = y;
         }
 
         @Override
         public int hashCode() {
-            return y << 16 + x;
+            return x << 16 + y;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            Location location = (Location) obj;
+            return location.x == this.x && location.y == this.y;
+
+        }
+
+        @Override
+        public String toString() {
+            return "Location:  " +
+                    "y = " + y +
+                    ", x = " + x;
         }
     }
 
-    static String[] bomberMan(int n, String[] grid) {
+    static char[][] bomberMan(int n, String[] grid) {
+        char[][] charArray = conStToCharArr(grid);
 
-        char[][] charArray = fillCharArray(grid);
+        if (n == 1) {
+            return charArray;
+        } else if (n % 2 == 0) {
+            return fillArrayWithZeros(charArray);
+        } else if (n % 4 == 3) {
+            return explode(charArray);
+        } else {
+            explode(charArray);
 
-        Set<Location> hashSet = new HashSet<>();
-
-        for (int a = 0; a < n; a++) {
-            if (a % 3 == 0) {
-                firstSecond(charArray);
-            } else if (a % 3 == 1) {
-                hashSet = secondSecond(charArray);
-            } else {
-                System.out.println("THIRD");
-                thirdSecond(hashSet, charArray);
-            }
+            System.out.println("Given Grid ");
+            Arrays.stream(charArray).forEach(a -> {
+                System.out.println(Arrays.toString(a));
+                System.out.println();
+            });
+            return explode(charArray);
         }
-
-        return convToString(charArray);
-
     }
 
-    private static String[] convToString(char[][] charArray) {
-        StringBuilder[] array = new StringBuilder[charArray.length];
-        String[] stArray = new String[charArray.length];
-        for (int a = 0; a < charArray.length; a++) {
-            array[a] = new StringBuilder();
-
-            for (int b = 0; b < charArray.length; b++) {
-                array[a].append(charArray[a][b]);
-            }
-            stArray[a] = array[a].toString();
-        }
-
-        return stArray;
-    }
-
-    private static char[][] fillCharArray(String[] grid) {
+    private static char[][] conStToCharArr(String[] grid) {
 
         char[][] arr = new char[grid.length][grid[0].length()];
 
@@ -79,59 +77,51 @@ public class TheBombermanGame {
         return arr;
     }
 
-    private static Set<Location> secondSecond(char[][] charArray) {
+    private static char[][] fillArrayWithZeros(char[][] array) {
+        for (char[] chars : array) Arrays.fill(chars, 'O');
+        return array;
+    }
 
-        Set<Location> locSet = new HashSet<>();
+    static char[][] explode(char[][] grid) {
+        ArrayList<Location> bombs = addBombs(grid);
 
+        fillArrayWithZeros(grid);
 
-        for (int a = 0; a < charArray.length; a++) {
-            for (int b = 0; b < charArray[0].length; b++) {
-                if (charArray[a][b] == '.') {
-                    charArray[a][b] = 'O';
-                    locSet.add(new Location(a, b));
-                }
+        for (Location l : bombs) {
+            grid[l.y][l.x] = '.';
 
+            if (l.y + 1 < grid.length) {
+                grid[l.y + 1][l.x] = '.';
+            }
+
+            if (l.y - 1 >= 0) {
+                grid[l.y - 1][l.x] = '.';
+            }
+
+            if (l.x + 1 < grid[0].length) {
+
+                grid[l.y][l.x + 1] = '.';
+            }
+
+            if (l.x - 1 >= 0) {
+                grid[l.y][l.x - 1] = '.';
             }
         }
 
-        return locSet;
+        return grid;
     }
 
-    private static void thirdSecond(Set<Location> locSet, char[][] charArray) {
+    private static ArrayList<Location> addBombs(char[][] grid) {
+        ArrayList<Location> arrayList = new ArrayList<>();
 
-
-        for (int a = 0; a < charArray.length; a++) {
-            for (int b = 0; b < charArray[0].length; b++) {
-                if (!locSet.contains(new Location(a, b))) {
-                    detonate(a, b, charArray);
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == 'O') {
+                    arrayList.add(new Location(i,j));
                 }
             }
         }
-    }
-
-    private static void detonate(int a, int b, char[][] charArray) {
-
-        getPossibleDetonatedLocations(a, b).stream().
-                filter(l -> (l.y < charArray.length && l.y >= 0) && (l.x < charArray[0].length && l.x >= 0))
-                .forEach(l -> {
-                    if (charArray[l.y][l.x] == 'O') {
-                        charArray[l.y][l.x] = '.';
-                    }
-                });
-
-    }
-
-    private static List<Location> getPossibleDetonatedLocations(int a, int b) {
-        return Arrays.asList(new Location(a + 1, b),
-                new Location(a - 1, b),
-                new Location(a, b + 1),
-                new Location(a, b - 1),
-                new Location(a, b));
-    }
-
-    private static void firstSecond(char[][] charArray) {
-
-
+        return arrayList;
     }
 
 
