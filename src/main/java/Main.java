@@ -6,12 +6,24 @@ public class Main {
 
         int[] a = new int[]{};
 
-        System.out.println(chocolateFeast(10,2,5));
+//        System.out.println(chocolateFeast(10,2,5));
+        System.out.println(check(" aca","  aac"));
     }
 
 
+    public static boolean check(String a, String b) {
+        int[] array = new int[26];
 
+        for (int c = 0; c < Math.max(a.length(), b.length()); c++) {
+            if (c < a.length() && a.charAt(c) != (char) 32) array[a.charAt(c)-'a']++;
+            if (c < b.length() && b.charAt(c) != (char) 32) array[b.charAt(c)-'a']--;
+        }
 
+        for (int i : array) {
+            if (i != 0) return false;
+        }
+        return true;
+    }
     static int chocolateFeast(int n, int c, int m) {
 
         int buyedBars =n/c;
