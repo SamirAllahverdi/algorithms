@@ -13,8 +13,10 @@ public class TheKWeakestRowsInMatrix {
 
         int[][] mat = {{1,1,0,0,0},{1,1,1,1,0},{1,0,0,0,0},{1,1,0,0,0},{1,1,1,1,1}};
         int k = 3;
-
+//  first
         System.out.println(Arrays.toString(kWeakestRows(mat, k)));
+
+//  second
         System.out.println(Arrays.toString(kWeakestRows2(mat, k)));
 
     }
