@@ -1,42 +1,39 @@
 package leetcode.easy;
 
-import java.util.Arrays;
-
 public class CountGoodTriplets {
 
 
     public static void main(String[] args) {
+        int[] array = {3,0,1,1,9,7};
+        int a = 7;
+        int b = 2;
+        int c = 3;
 
+
+        System.out.println(countGoodTriplets(array, a, b, c));
     }
 
 
     public static int countGoodTriplets(int[] arr, int a, int b, int c) {
+        int n = arr.length;
 
-
-        int left = 0;
-        int mid = 1;
-        int right = 2;
         int count = 0;
-        while (left < right) {
 
-            int[] array = {arr[0], arr[1], arr[2]};
+        for (int i = 0; i <= n - 3; i++) {
+            for (int j = i+1; j <= n - 2; j++) {
+                if (Math.abs(arr[j] - arr[i]) > a) {
+                    continue;
+                }
+                for (int k = j+1; k < n; k++) {
+                    if (Math.abs(arr[i] - arr[k]) <= c && Math.abs(arr[j] - arr[k]) <= b) {
+                        count++;
+                    }
+                }
 
-            if (isValid(array, a, b, c) == 0) count++;
-
-
-
-
+            }
         }
+        return count;
 
-return count;
     }
 
-    private static int isValid(int[] array, int a, int b, int c) {
-
-        if (Math.abs(array[0] - array[1]) > a) return 1;
-        else if (Math.abs(array[1] - array[2]) > b) return 2;
-        else if (Math.abs(array[0] - array[2]) > c) return 3;
-
-        return 0;
-    }
 }
