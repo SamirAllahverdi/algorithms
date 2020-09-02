@@ -9,16 +9,17 @@ public class AltChar {
 
 
     public static void main(String[] args) {
-        String s = "AAABBB";
+        String s = "AAABBBA";
         System.out.println(s);
         System.out.println(alternatingCharacters(s));
     }
 
-    // Complete the alternatingCharacters function below.
+
     static int alternatingCharacters(String s) {
         StringBuilder stringBuilder = new StringBuilder(s);
         int a = 1;
         int count = 0;
+
         while (a < stringBuilder.length()) {
 
             if (stringBuilder.charAt(a) == stringBuilder.charAt(a - 1)) {
@@ -27,9 +28,13 @@ public class AltChar {
             } else {
                 a++;
             }
+            System.out.println(stringBuilder);
+
         }
         return count;
     }
+
+
     static int alternatingCharacters2(String s) {
 
         int count = 0;
@@ -67,12 +72,15 @@ public class AltChar {
     static <A, T> A fold(Iterable<T> data, A initial, BiFunction<A, T, A> f) {
         Iterator<T> it = data.iterator();
         A acc = initial;
+
         while (it.hasNext()) {
             System.out.println(acc);
             acc = f.apply(acc, it.next());
         }
+
         return acc;
     }
+
 
 
     static int alternatingCharacters3(String s) {
@@ -88,6 +96,4 @@ public class AltChar {
                 f
         ).a;
     }
-
-
 }
