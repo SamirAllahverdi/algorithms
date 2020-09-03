@@ -33,7 +33,6 @@ public class CombinationSum {
         if (index >= candidates.length) {
             return;
         }
-
         combinationSum(candidates, target, index + 1);
         if (target - candidates[index] >= 0) {
             list.add(candidates[index]);
