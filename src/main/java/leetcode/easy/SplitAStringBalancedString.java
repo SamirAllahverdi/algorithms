@@ -8,8 +8,10 @@ public class SplitAStringBalancedString {
 
 //       For first
         System.out.println(balancedStringSplit(a));
+
 //       For second
         System.out.println(balancedStringSplit2(a));
+
 //       For third
         System.out.println(balancedStringSplit3(a));
     }
