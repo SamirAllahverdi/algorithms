@@ -13,11 +13,18 @@ public class HowManyNumbersAreSmallerThanTheCurrentNumber {
     public static void main(String[] args) {
 
         int[] nums = {8, 1, 2, 2, 3};
+
+//        For first
+        System.out.println(Arrays.toString(smallerNumbersThanCurrent(nums)));
+
+//        For second
         System.out.println(Arrays.toString(smallerNumbersThanCurrent2(nums)));
 
     }
 
-
+    /**
+     * - solution 1 (brute force)
+     */
     public static int[] smallerNumbersThanCurrent(int[] nums) {
         int[] result = new int[nums.length];
 
@@ -35,6 +42,9 @@ public class HowManyNumbersAreSmallerThanTheCurrentNumber {
         return result;
     }
 
+    /**
+     * - solution 2 (dynamic approach)
+     */
     public static int[] smallerNumbersThanCurrent2(int[] nums) {
         int max = 0;
         for (int num : nums) {
