@@ -26,7 +26,6 @@ public class BestTimeToBuy {
      * - first solution
      */
     public static int maxProfit(int[] prices) {
-
         int idx = 0;
         int max = 0;
 
@@ -38,7 +37,6 @@ public class BestTimeToBuy {
             }
             idx++;
         }
-
         return max;
     }
 
