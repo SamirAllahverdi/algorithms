@@ -10,7 +10,7 @@ public class ClimbingTheLeaerBord {
     }
 // my favorite
     static int[] climbingLeaderboard2(int[] scores, int[] alice) {
-        int results[] = new int[alice.length];
+        int[] results = new int[alice.length];
         int rank = 1;
         int rankScore = scores[0];
 // begin to iteration over alice[]

@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 public class SherlockAndValidStringApp {
 
     public static void main(String[] args) {
-
         isValid("abbcc");
     }
 

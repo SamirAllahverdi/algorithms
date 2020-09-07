@@ -1,8 +1,10 @@
 package InterestingWarmUpAlgorithms;
 
+import java.util.Arrays;
+
 public class CircularArrayRotation {
     public static void main(String[] args) {
-        System.out.println(circularArrayRotation(new int[]{3, 2, 1}, 1,new int[]{1,2}));
+        System.out.println(Arrays.toString(circularArrayRotation(new int[]{3, 2, 1}, 1, new int[]{1, 2})));
     }
 
     static int[] circularArrayRotation(int[] a, int k, int[] queries) {

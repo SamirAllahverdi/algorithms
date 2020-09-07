@@ -24,7 +24,7 @@ public class MigratoryBirds {
         return hashMap.entrySet()
                 .stream()
                 .filter(entry -> entry.getValue() == Collections.max(hashMap.values()))
-                .min(Comparator.comparingInt(integerLongEntry -> integerLongEntry.getKey())).get().getKey();
+                .min(Comparator.comparingInt(Map.Entry::getKey)).get().getKey();
     }
 
     static int migratoryBirds2(List<Integer> arr) {

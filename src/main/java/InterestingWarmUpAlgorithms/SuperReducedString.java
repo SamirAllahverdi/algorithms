@@ -3,6 +3,7 @@ package InterestingWarmUpAlgorithms;
 import java.util.Stack;
 
 public class SuperReducedString {
+
     public static void main(String[] args) {
         System.out.println(superReducedString("aabvs"));
     }
@@ -11,7 +12,7 @@ public class SuperReducedString {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < str.length(); i++) {
             System.out.println(i + " TURN");
-            Character ch = str.charAt(i);
+            char ch = str.charAt(i);
             System.out.println(stack.toString());
             if (!stack.isEmpty() && ch == stack.peek()) {
                 System.out.println("Poped " + ch);
@@ -27,11 +28,11 @@ public class SuperReducedString {
         if (stack.isEmpty()) {
             return "Empty String";
         } else {
-            String result = "";
+            StringBuilder result = new StringBuilder();
             for (char ch : stack) {
-                result = result + ch;
+                result.append(ch);
             }
-            return result;
+            return result.toString();
         }
     }
 }

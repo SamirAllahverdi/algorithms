@@ -11,9 +11,7 @@ public class _Optional {
                 new Pet("Dog", "topik"),
                 new Pet("Cat", "mestan") );
 
-
-        Optional.ofNullable(null).ifPresent(System.out::println);
-        Optional.ofNullable(null).ifPresentOrElse(System.out::println,()-> System.out.println("empty"));
-
+        Optional.empty().ifPresent(System.out::println);
+        Optional.empty().ifPresentOrElse(System.out::println,()-> System.out.println("empty"));
     }
 }
