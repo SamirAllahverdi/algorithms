@@ -7,7 +7,25 @@ public class Main {
         int[] a = new int[]{};
 
 //        System.out.println(chocolateFeast(10,2,5));
-        System.out.println(check(" aca","  aac"));
+//        System.out.println(check(" aca", "  aac"));
+       permutation("Samir");
+
+    }
+
+    static void permutation(String str) {
+        permutation(str, "");
+    }
+
+
+    static void permutation(String str, String prefix) {
+        if (str.length() == 0) {
+            System.out.println(prefix);
+        } else {
+            for (int i = 0; i < str.length(); i++) {
+                String rem = str.substring(0, i) + str.substring(i + 1);
+                permutation(rem, prefix + str.charAt(i));
+            }
+        }
     }
 
 
@@ -15,8 +33,8 @@ public class Main {
         int[] array = new int[26];
 
         for (int c = 0; c < Math.max(a.length(), b.length()); c++) {
-            if (c < a.length() && a.charAt(c) != (char) 32) array[a.charAt(c)-'a']++;
-            if (c < b.length() && b.charAt(c) != (char) 32) array[b.charAt(c)-'a']--;
+            if (c < a.length() && a.charAt(c) != (char) 32) array[a.charAt(c) - 'a']++;
+            if (c < b.length() && b.charAt(c) != (char) 32) array[b.charAt(c) - 'a']--;
         }
 
         for (int i : array) {
@@ -24,23 +42,25 @@ public class Main {
         }
         return true;
     }
+
     static int chocolateFeast(int n, int c, int m) {
 
-        int buyedBars =n/c;
-        int wraps=buyedBars;
-        while(wraps >= m){
+        int buyedBars = n / c;
+        int wraps = buyedBars;
+        while (wraps >= m) {
             System.out.println("t");
-            int nextWraps = (wraps/m);
-            int r = buyedBars% m;
-            buyedBars =buyedBars + nextWraps;
-            wraps= r+nextWraps;
+            int nextWraps = (wraps / m);
+            int r = buyedBars % m;
+            buyedBars = buyedBars + nextWraps;
+            wraps = r + nextWraps;
         }
-        return buyedBars  ;
+        return buyedBars;
 
     }
+
     static int hurdleRace(int k, int[] height) {
         int max = Arrays.stream(height).max().orElse(0);
-        return k>=max ? 0: max-k ;
+        return k >= max ? 0 : max - k;
     }
 
     public static String shift(String orig, int toLeft, int toRight) {

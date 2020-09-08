@@ -12,12 +12,14 @@ public class QueensThatCanAttackTheKing {
         int[][] queens = {{0, 1}, {1, 0}, {4, 0}, {0, 4}, {3, 3}, {2, 4}};
         int[] kings = {0, 0};
 
-        System.out.println(queensAttacktheKing(queens, kings));
+        System.out.println(queensAttackTheKing(queens, kings));
     }
 
-    public static List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
+    public static List<List<Integer>> queensAttackTheKing(int[][] queens, int[] king) {
+
         List<List<Integer>> res = new ArrayList<>();
         boolean[][] queenPositions = new boolean[8][8];
+
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, -1}, {-1, 1}, {1, 1}, {-1, -1}};
 
         for (int[] queen : queens) {
