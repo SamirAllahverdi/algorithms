@@ -1,6 +1,5 @@
 package hackerRank.medium;
 
-import interview.InterviewPractice;
 
 import java.util.Arrays;
 
