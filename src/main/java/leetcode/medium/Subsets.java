@@ -29,11 +29,13 @@ public class Subsets {
         for (int num : nums) {
             List<List<Integer>> newSubsets = new ArrayList<>();
             for (List<Integer> curr : output) {
+                System.out.println(output);
                 newSubsets.add(new ArrayList<>(curr) {{
                     add(num);
                 }});
             }
             output.addAll(newSubsets);
+
         }
         return output;
     }
