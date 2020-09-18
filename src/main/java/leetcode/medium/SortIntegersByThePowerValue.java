@@ -13,7 +13,6 @@ public class SortIntegersByThePowerValue {
         int lo = 7;
         int hi = 11;
         int k = 4;
-
         System.out.println(getKth(lo, hi, k));
 
     }
