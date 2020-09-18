@@ -5,36 +5,39 @@ import java.util.List;
 
 public class TheKthLexicographicalStringOfAllHappyStringsOfLengthN {
 
+    /**
+     * https://leetcode.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n/
+     */
+
     public static void main(String[] args) {
-        int n = 0;
-        int k = 0;
+        int n = 3;
+        int k = 9;
 
         System.out.println(getHappyString(n, k));
     }
 
 
+    static int k;
+
     public static String getHappyString(int n, int k) {
 
-        List<StringBuilder> list = new ArrayList<>();
-        char[] letters = {'a', 'b', 'c'};
-        int idx = 0;
+//        K is defined as class variable
+        TheKthLexicographicalStringOfAllHappyStringsOfLengthN.k = k;
 
+        return dfs(n, 0, "");
+    }
 
-        while (true) {
+    private static String dfs(int n, int i, String s) {
 
-            list.add(new StringBuilder());
+        if (i == n) return (--k == 0) ? s : "";
 
-            for (int a = 0; a < n; a++) {
+        for (char c = 'a'; c <= 'c'; c++) {
 
-                if (idx == 3) {
-                    list.get(list.size() - 1).append(letters[0]);
-                    idx = 1;
-                }else {
+            if (!s.isEmpty() && s.charAt(s.length() - 1) == c) continue;
 
+            String res = dfs(n, i + 1, s + c);
 
-                }
-            }
-
+            if (!res.isEmpty()) return res;
 
         }
 
