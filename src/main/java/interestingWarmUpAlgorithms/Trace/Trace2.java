@@ -9,7 +9,6 @@ public class Trace2 {
         static String direction = "3";
         static int column;
         static int row = 0;
-
     }
 
     public static void main(String[] args) {

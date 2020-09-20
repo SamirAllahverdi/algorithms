@@ -1,8 +1,5 @@
 package leetcode.medium;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TheKthLexicographicalStringOfAllHappyStringsOfLengthN {
 
     /**
@@ -24,10 +21,10 @@ public class TheKthLexicographicalStringOfAllHappyStringsOfLengthN {
 //        K is defined as class variable
         TheKthLexicographicalStringOfAllHappyStringsOfLengthN.k = k;
 
-        return dfs(n, 0, "");
+        return backtrack(n, 0, "");
     }
 
-    private static String dfs(int n, int i, String s) {
+    private static String backtrack(int n, int i, String s) {
 
         if (i == n) return (--k == 0) ? s : "";
 
@@ -35,7 +32,7 @@ public class TheKthLexicographicalStringOfAllHappyStringsOfLengthN {
 
             if (!s.isEmpty() && s.charAt(s.length() - 1) == c) continue;
 
-            String res = dfs(n, i + 1, s + c);
+            String res = backtrack(n, i + 1, s + c);
 
             if (!res.isEmpty()) return res;
 
