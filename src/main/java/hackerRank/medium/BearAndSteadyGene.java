@@ -9,7 +9,6 @@ public class BearAndSteadyGene {
      * https://www.hackerrank.com/challenges/bear-and-steady-gene/problem
      */
 
-
     public static void main(String[] args) {
 
         String gene = "GAAATAAA";
