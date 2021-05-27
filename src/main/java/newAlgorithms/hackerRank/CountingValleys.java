@@ -8,10 +8,10 @@ public class CountingValleys {
      * https://www.hackerrank.com/challenges/counting-valleys
      */
 
-    public static void main(String[] args) {
-        System.out.println(countingValleys(8, "UDDDUDUU"));  //expected 1
-        System.out.println(countingValleys(12,"DDUUDDUDUUUD")); //expected 2
-    }
+//    public static void main(String[] args) {
+//        System.out.println(countingValleys(8, "UDDDUDUU"));  //expected 1
+//        System.out.println(countingValleys(12,"DDUUDDUDUUUD")); //expected 2
+//    }
 
     public static int countingValleys(int steps, String path) {
 
