@@ -56,11 +56,13 @@ public class Interfaces {
     static Function<String, String> strinFunction = a -> "Azerbaycan " + a;
     static Function<String, String> combineWithStringFunction = a -> a + ", Sanli Azerbaycan";
     static BiFunction<Integer, String, String> useToEnter2Input = (registrationNumber, OtelName) -> registrationNumber + ". in the otel of " + OtelName;
-    static Consumer<Pet> consumeAProses = consumer -> System.out.println("The species type is " + consumer.species + " And The name of this beatufil " + consumer.species + " is " + consumer.name);
+    static Consumer<Pet> consumeAProses =
+            consumer -> System.out.println("The species type is " + consumer.species + " And The name of this beatufil " + consumer.species + " is " + consumer.name);
     static Consumer<Pet> consumeAProses2 = consumer ->  System.out.println(consumer.species + " name is " + consumer.name);
     static BiConsumer<Pet,Boolean> consumeProsesByBiConsumer= (consumer,a) ->
-            System.out.println(consumer.species + " type of species registration can not be accepted " + "because of "
-            +(a ? "Savage level" : "Financial problem" ) );
+            System.out.println(consumer.species +
+                    " type of species registration can not be accepted " + "because of " +
+                    (a ? "Savage level" : "Financial problem" ));
     static Predicate<Integer> checkPredicate = a -> a>5;
     static BiPredicate<Integer,String> checkBiPredicate = (a,b) -> a<5 && b.length()>3;
     static Supplier<String> supplier = ()-> "this is supplier";
