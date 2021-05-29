@@ -1,25 +1,23 @@
 package newAlgorithms.hackerRank;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class TwoDArray {
     /**
      * https://www.hackerrank.com/challenges/2d-array/
      */
-    public static void main(String[] args) {
-
-        List<List<Integer>> list = new ArrayList<>();
-        list.add(Arrays.asList(1, 1, 1, 0, 0, 0));
-        list.add(Arrays.asList(0, 1, 0, 0, 0, 0));
-        list.add(Arrays.asList(1, 1, 1, 0, 0, 0));
-        list.add(Arrays.asList(0, 0, 2, 4, 4, 0));
-        list.add(Arrays.asList(0, 0, 0, 2, 0, 0));
-        list.add(Arrays.asList(0, 0, 1, 2, 4, 0));
-
-        System.out.println(hourglassSum(list)); // expected 19
-    }
+//    public static void main(String[] args) {
+//
+//        List<List<Integer>> list = new ArrayList<>();
+//        list.add(Arrays.asList(1, 1, 1, 0, 0, 0));
+//        list.add(Arrays.asList(0, 1, 0, 0, 0, 0));
+//        list.add(Arrays.asList(1, 1, 1, 0, 0, 0));
+//        list.add(Arrays.asList(0, 0, 2, 4, 4, 0));
+//        list.add(Arrays.asList(0, 0, 0, 2, 0, 0));
+//        list.add(Arrays.asList(0, 0, 1, 2, 4, 0));
+//
+//        System.out.println(hourglassSum(list)); // expected 19
+//    }
 
 
     public static int hourglassSum(List<List<Integer>> arr) {
