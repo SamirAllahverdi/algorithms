@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>learning</artifactId>
+    <artifactId>algorithms</artifactId>
     <version>1.0-SNAPSHOT</version>
+
 
     <build>
         <plugins>
@@ -17,10 +18,6 @@
                     <source>11</source>
                     <target>11</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
             </plugin>
         </plugins>
     </build>
