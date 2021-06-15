@@ -10,10 +10,10 @@ import java.util.stream.IntStream;
 public class SherlockAndAnagram {
 
 //    public static void main(String[] args) {
-//        System.out.println(sherlockAndAnagrams2("cdcd"));
+//        System.out.println(sherlockAndAnagrams("cdcd"));
 //    }
 
-    static int sherlockAndAnagrams2(String s) {
+    static int sherlockAndAnagrams(String s) {
         return IntStream.range(1, s.length())
                 .map(a -> findCount(a, s)).sum();
 
