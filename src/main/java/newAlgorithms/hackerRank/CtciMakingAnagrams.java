@@ -11,10 +11,10 @@ public class CtciMakingAnagrams {
     public static final String SECOND = "second_";
 
 
-    public static void main(String[] args) {
-        System.out.println(makeAnagram("fcrxzwscanmligyxyvym", "jxwtrhvujlmrpdoqbisbwhmgpmeoke"));
-//        expected 30
-    }
+//    public static void main(String[] args) {
+//        System.out.println(makeAnagram("fcrxzwscanmligyxyvym", "jxwtrhvujlmrpdoqbisbwhmgpmeoke"));
+////        expected 30
+//    }
 
     public static int makeAnagram(String first, String second) {
 
@@ -38,9 +38,9 @@ public class CtciMakingAnagrams {
                 }
         );
 
-
         return map.values().stream()
                 .filter(value -> value > 0)
                 .reduce(0, Integer::sum);
     }
+
 }
