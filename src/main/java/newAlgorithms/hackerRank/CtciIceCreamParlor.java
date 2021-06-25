@@ -5,10 +5,10 @@ import java.util.*;
 public class CtciIceCreamParlor {
 
 
-    public static void main(String[] args) {
-        whatFlavors(Arrays.asList(2, 1, 3, 5, 6), 5);
-//        expected 1 3
-    }
+//    public static void main(String[] args) {
+//        whatFlavors(Arrays.asList(2, 1, 3, 5, 6), 5);
+////        expected 1 3
+//    }
 
 
     public static void whatFlavors(List<Integer> cost, int money) {
