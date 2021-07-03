@@ -19,12 +19,12 @@ public class DayOfProgrammer {
     /**
      * https://www.hackerrank.com/challenges/day-of-the-programme
      */
-    public static void main(String[] args) {
-
-        System.out.println(dayOfProgrammer(TRANSITION_YEAR)); /* expected 26.09.1918*/
-        System.out.println(dayOfProgrammer(2017)); /* expected 13.09.2017 */
-        System.out.println(dayOfProgrammer(2700)); /* expected 13.09.2700 */
-    }
+//    public static void main(String[] args) {
+//
+//        System.out.println(dayOfProgrammer(TRANSITION_YEAR)); /* expected 26.09.1918*/
+//        System.out.println(dayOfProgrammer(2017)); /* expected 13.09.2017 */
+//        System.out.println(dayOfProgrammer(2700)); /* expected 13.09.2700 */
+//    }
 
 
     public static String dayOfProgrammer(int year) {
