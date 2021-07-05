@@ -4,7 +4,6 @@ public class SherlockAndSquares {
 
     public static final int NO_WHOLE_SQUARE_ROOT_FOUND = 0;
 
-
     /**
      * https://www.hackerrank.com/challenges/sherlock-and-squares
      */
