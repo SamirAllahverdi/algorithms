@@ -1,4 +1,4 @@
-package newAlgorithms.hackerRank;
+package newImplemenations.hackerRank;
 
 import java.util.Arrays;
 import java.util.List;

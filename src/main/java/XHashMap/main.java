@@ -8,8 +8,6 @@ public class main {
         xHashMap.put(1, "dsaassa");
 
 
-
-
         System.out.println(xHashMap.get(1).value);
 
     }

@@ -1,6 +1,4 @@
-package newAlgorithms.hackerRank;
-
-import java.util.Arrays;
+package newImplemenations.hackerRank;
 
 public class CountingValleys {
 
