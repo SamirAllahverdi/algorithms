@@ -1,6 +1,5 @@
-package newImplemenations.hackerRank;
+package hackerRank.newImplemenations;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

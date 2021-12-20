@@ -1,4 +1,4 @@
-package newImplemenations.hackerRank;
+package hackerRank.newImplemenations;
 
 import java.util.List;
 import java.util.stream.Collectors;
