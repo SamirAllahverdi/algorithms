@@ -1,4 +1,4 @@
-package XGraph;
+package dataStructures.oldImpl.XGraph;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package XLinkedList;
+package dataStructures.oldImpl.XLinkedList;
 
 public class XLinkedList {
 

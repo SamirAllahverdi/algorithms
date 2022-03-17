@@ -1,4 +1,4 @@
-package XBinaryTree;
+package dataStructures.oldImpl.XBinaryTree;
 
 public class main {
     public static void main(String[] args) {

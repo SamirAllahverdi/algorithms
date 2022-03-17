@@ -1,4 +1,4 @@
-package XHashMap;
+package dataStructures.oldImpl.XHashMap;
 
 public class main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package XBinaryTree;
+package dataStructures.oldImpl.XBinaryTree;
 
 import java.util.*;
 
