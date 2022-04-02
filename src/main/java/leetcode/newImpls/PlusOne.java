@@ -8,10 +8,10 @@ public class PlusOne {
     /**
      * https://leetcode.com/problems/plus-one/
      */
-    public static void main(String[] args) {
-        int[] digits = {4, 3, 2, 1};
-        System.out.println(Arrays.toString(plusOne(digits)));
-    }
+//    public static void main(String[] args) {
+//        int[] digits = {4, 3, 2, 1};
+//        System.out.println(Arrays.toString(plusOne(digits)));
+//    }
 
 
     public static int[] plusOne(int[] digits) {
