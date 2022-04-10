@@ -4,7 +4,9 @@ import java.util.Arrays;
 
 public class InsertionSort {
 
-//
+      // Best: O(n) time | O(1) space
+      // Average: O(n^2) time | O(1) space
+      // Worst: O(n^2) time | O(1) space
 //    public static void main(String[] args) {
 //        int[] array = {3, 4, 1, 7};
 //        System.out.println(Arrays.toString(insertionSor(array)));
