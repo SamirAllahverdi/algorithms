@@ -1,7 +1,4 @@
-package leetcode.newImpls;
-
-import java.util.ArrayList;
-import java.util.List;
+package leetcode.recentImpls;
 
 public class PalindromeNumber {
 

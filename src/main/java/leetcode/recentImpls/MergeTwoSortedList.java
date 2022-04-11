@@ -1,4 +1,4 @@
-package leetcode.newImpls;
+package leetcode.recentImpls;
 
 public class MergeTwoSortedList {
     static class ListNode {

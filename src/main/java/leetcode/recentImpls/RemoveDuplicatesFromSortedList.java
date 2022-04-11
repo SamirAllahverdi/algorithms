@@ -1,4 +1,4 @@
-package leetcode.newImpls;
+package leetcode.recentImpls;
 
 import java.util.Arrays;
 import java.util.List;

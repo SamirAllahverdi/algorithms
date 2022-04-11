@@ -1,4 +1,4 @@
-package leetcode.newImpls;
+package leetcode.recentImpls;
 
 public class SearchInsertPosition {
 
