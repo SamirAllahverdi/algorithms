@@ -1,16 +1,42 @@
 package sorting;
 
+import java.util.Arrays;
+
 public class BubbleSort {
 
     // Best: O(n) time | O(1) space
     // Average: O(n^2) time | O(1) space
     // Worst: O(n^2) time | O(1) space
 
-//    public static void main(String[] args) {
-//        int[] nums = {5, 2, 8, 5, 6, 3, 9};
-//
-//        System.out.println(Arrays.toString(bubbleSort(nums)));
-//    }
+    public static void main(String[] args) {
+        int[] nums = {5, 2, 8, 5, 6, 3, 9};
+
+        System.out.println(Arrays.toString(bubbleSort(nums)));
+    }
+
+    public int[] bubleSortImpl(int[] array) {
+
+        if (array == null)
+            return null;
+
+        if (array.length == 0)
+            return new int[0];
+
+        for (int a = 0; a < array.length; a++) {
+            boolean isSorted = false;
+            for (int b = 0; b < array.length - 1 - a; b++) {
+                if (array[b] > array[b + 1]) {
+                    swap(b, b + 1, array);
+                    isSorted = true;
+                }
+            }
+            if (isSorted)
+                break;
+        }
+
+
+        return array;
+    }
 
 
     public static int[] bubbleSort(int[] nums) {

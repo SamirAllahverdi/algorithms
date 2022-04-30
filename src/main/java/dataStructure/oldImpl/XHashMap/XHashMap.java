@@ -54,6 +54,7 @@ public class XHashMap {
         if( get(key) != null){
             get(key).setValue(value);
         }
+
         if (hashNodes[index] != null) {
             sendToNodeList(key, index, value);
         } else {
