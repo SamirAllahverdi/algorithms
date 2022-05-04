@@ -1,4 +1,4 @@
-package hackerRank.newImplemenations;
+package hackerRank.recentImpls;
 
 import java.util.List;
 import java.util.Map;

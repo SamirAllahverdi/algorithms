@@ -1,6 +1,5 @@
-package hackerRank.newImplemenations;
+package hackerRank.recentImpls;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class TheBirthdayBar {

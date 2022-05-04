@@ -1,4 +1,4 @@
-package hackerRank.newImplemenations;
+package hackerRank.recentImpls;
 
 public class SherlockAndSquares {
 
