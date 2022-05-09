@@ -5,10 +5,10 @@ public class KaprekarNumbers {
     /**
      * https://www.hackerrank.com/challenges/kaprekar-numbers
      */
-
-    public static void main(String[] args) {
-        kaprekarNumbers(1, 100);
-    }
+//
+//    public static void main(String[] args) {
+//        kaprekarNumbers(1, 100);
+//    }
 
 
     public static void kaprekarNumbers(int p, int q) {
