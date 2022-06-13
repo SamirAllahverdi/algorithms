@@ -92,7 +92,7 @@ public class XLinkedList {
         if (node.next == null) return joiner;
         return represent_normal(node.next, joiner + node.next.value);
     }
-
+// 3 2 2 ni;;
     public void reverse() {
         Node previous = null;
         Node current = head;

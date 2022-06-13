@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class MergeSort {
 
+    // Best: O(nlog(n)) time | O(n) space
+    // Average: O(Nlog(n)) time | O(n) space
+    // Worst: O(nLogn) time | O(n) space
     public static void main(String[] args) {
         int[] array = {22, 10, 3, 4, 1, 7};
         System.out.println(Arrays.toString(mergeSortBasic(array)));
