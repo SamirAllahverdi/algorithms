@@ -2,6 +2,7 @@ package warmup;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,9 @@ public class AltChar {
         String s = "AAABBBA";
         System.out.println(s);
         System.out.println(alternatingCharacters(s));
+
+        for(int a= 0; a < 13_000;a++)
+            System.out.print(UUID.randomUUID() + ",");
     }
 
 

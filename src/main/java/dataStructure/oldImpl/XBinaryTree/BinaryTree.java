@@ -70,6 +70,7 @@ public class BinaryTree<K extends Comparable<K>, V> {
         return x;
     }
 
+
     private Node performNodeRemoval(Node x) {
         // 1. save the left sub-tree. we will attach it in 4.3
         Node savedLeft = x.left;
