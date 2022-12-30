@@ -1,5 +1,7 @@
 package leetcode.easy;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class ClimbingStairs {
 
     /**
@@ -10,6 +12,7 @@ public class ClimbingStairs {
 //    }
 
     public static int climbStairs(int n) {
+
         if (n == 1) {
             return 1;
         }
