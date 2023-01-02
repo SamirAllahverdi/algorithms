@@ -8,10 +8,10 @@ import java.util.List;
 public class LongestIncreasingSubsequent {
 
 
-    public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(8, 2, 3, 4, 10);
-        System.out.println(longestIncreasingSubsequence(list));
-    }
+//    public static void main(String[] args) {
+//        List<Integer> list = Arrays.asList(8, 2, 3, 4, 10);
+//        System.out.println(longestIncreasingSubsequence(list));
+//    }
 
 
     public static int longestIncreasingSubsequence(List<Integer> arr) {
