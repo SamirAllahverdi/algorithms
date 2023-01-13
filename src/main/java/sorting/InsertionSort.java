@@ -13,26 +13,6 @@ public class InsertionSort {
     }
 
 
-
-
-
-    public int[] insertionSort(int[] array) {
-        if (array == null)
-            return null;
-
-        if (array.length == 0)
-            return new int[0];
-
-        for (int a = 1; a < array.length; a++) {
-            int b = a;
-            while (b > 0 && array[b] < array[b - 1])
-                swap(b - 1, b--, array);
-        }
-
-        return array;
-    }
-
-
     public static int[] insertionSor(int[] array) {
         if (array.length == 0) {
             return new int[0];

@@ -11,10 +11,19 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] nums = {5, 2, 8, 5, 6, 3, 9};
 
-        System.out.println(Arrays.toString(bubbleSort(nums)));
+        System.out.println(Arrays.toString(bubbleSortImpl(nums)));
     }
 
-    public int[] bubleSortImpl(int[] array) {
+
+
+
+
+
+
+
+
+
+    public static int[] bubbleSortImpl(int[] array) {
 
         if (array == null)
             return null;
@@ -23,11 +32,11 @@ public class BubbleSort {
             return new int[0];
 
         for (int a = 0; a < array.length; a++) {
-            boolean isSorted = false;
+            boolean isSorted = true;
             for (int b = 0; b < array.length - 1 - a; b++) {
                 if (array[b] > array[b + 1]) {
                     swap(b, b + 1, array);
-                    isSorted = true;
+                    isSorted = false;
                 }
             }
             if (isSorted)

@@ -18,7 +18,9 @@ public class QuickSort {
         System.out.println(Arrays.toString(array));
 
     }
-
+//    22, 10, 3, 4, 1, 7
+//    7, 10, 3, 4, 1, 22
+//    4, 1, 3, 7, 10, 22
 
     public static void quicksort(int[] array, int startIdx, int endIdx) {
         if (startIdx >= endIdx) return;
