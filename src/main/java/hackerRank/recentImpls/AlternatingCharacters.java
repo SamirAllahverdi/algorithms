@@ -10,6 +10,9 @@ public class AlternatingCharacters {
 //        System.out.println(alternatingCharacters("AABBABAB"));
 //    }
 
+    
+    
+    
 
     public static int alternatingCharacters(String s) {
         int deletion = 0;
