@@ -11,6 +11,9 @@ public class MissingNumber {
 
     public static int missingNumber(int[] nums) {
 
+
+
+
         int n = nums.length;
         int totalsum = n * (n + 1) / 2;
         for (int i : nums)
